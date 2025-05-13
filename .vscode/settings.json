@@ -1,0 +1,6 @@
+{
+    "python.defaultInterpreterPath": "E:\\mayo_project\\encryption\\venv\\Scripts\\python.exe",
+    "python.analysis.extraPaths": [
+        "E:\\mayo_project\\encryption\\venv\\Lib\\site-packages"
+    ]
+}
