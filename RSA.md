@@ -4,11 +4,11 @@ In RSA, we have two large primes p and q, a modulus N = pq, an encryption expone
 
 To encrypt a message M, compute
 
-      C = Me mod N.
+      C = M^e mod N.
 
 We want to show
 
-      M = Cd mod N,
+      M = C^d mod N,
 
 i.e., that we can decrypt by raising the ciphertext C to the d power and reducing the result modulo N. But first we must take a slight mathematical detour.
 
