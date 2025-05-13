@@ -4,11 +4,11 @@ In RSA, we have two large primes p and q, a modulus N = pq, an encryption expone
 
 To encrypt a message M, compute
 
-      C = M<sup>e</sup> mod N.
+C = M<sup>e</sup> mod N
 
 We want to show
 
-      M = C<sup>d</sup> mod N,
+M = C<sup>d</sup> mod N,
 
 i.e., that we can decrypt by raising the ciphertext C to the d power and reducing the result modulo N. But first we must take a slight mathematical detour.
 
@@ -16,13 +16,11 @@ Two positive integers m and n are said to be relatively prime if they have no co
 
 For a positive integer n, define φ(n) to be the number of integers less than n that are relatively prime with n. For example, φ(12) = 4, since only 11, 7, 5 and 1 are less than 12 and relatively prime to 12, while φ(7) = 6. In fact, for any prime number p we have φ(p) = p - 1.
 
-Suppose the prime factorization of n is given by
-
-      n = p<sub>1</sub><sup>k<sub>1</sub></sup> p<sub>2</sub><sup>k<sub>2</sub></sup> ... p<sub>r</sub><sup>k<sub>r</sub><sup>
+Suppose the prime factorization of n is given by      n = p<sub>1</sub><sup>k<sub>1</sub></sup> p<sub>2</sub><sup>k<sub>2</sub></sup> ... p<sub>r</sub><sup>k<sub>r</sub></sup>
 
 Then it can be shown that
 
-      φ(n) = n (1 - 1/p1) (1 - 1/p2) ... (1 - 1/pr)
+      φ(n) = n (1 - 1/p<sub>1</sub>) (1 - 1/p<sub>2</sub>) ... (1 - 1/p<sub>r</sub>)
 
 Note that for the RSA modulus N = pq this result implies
 
@@ -30,13 +28,13 @@ Note that for the RSA modulus N = pq this result implies
 
 The final mathematical result we need is Fermat's Little Theorem. This theorem is usually stated as
 
-Fermat's Little Theorem: If p is prime and p does not divide x, then xp - 1 = 1 mod p
+Fermat's Little Theorem: If p is prime and p does not divide x, then x<sup>p - 1</sup> = 1 mod p
 However, a generalization of Fermat's Little Theorem (sometimes known as Euler's Theorem) is more directly applicable to RSA. This theorem states that
 
-Euler's Theorem: If x is relatively prime to n then xφ(n) = 1 mod n
+Euler's Theorem: If x is relatively prime to n then x<sup>φ(n)</sup> = 1 mod n
 Now back to RSA decryption. We want to show that
 
-      M = Cd = (Me)d = Med mod N.
+      M = C<sup>d</sup> = (M<sup>e</sup>)<sup>d</sup> = M<sup>ed</sup> mod N.
 
 Recall that ed = 1 mod (p - 1)(q - 1). Also, since N = pq, as noted above, we have
 
@@ -48,8 +46,8 @@ and it follows that
 
 Then by the definition of "mod", there is some k such that ed - 1 = kφ(N). We now have
 
-      Med = M(ed - 1) + 1 = M Med - 1 = M Mkφ(N) mod N
+      M<sup>ed</sup> = M<sup>(ed - 1) + 1</sup> = M<sup>ed - 1</sup> · M = M · M<sup>kφ(N)</sup> mod N
 
 Finally, Fermat's Little Theorem (in the form of Euler's Theorem) can be applied to yield the desired result
 
-      Med = M (Mk)φ(N) = M mod N = M.
+      M<sup>ed</sup> = M · (M<sup>k</sup>)<sup>φ(N)</sup> = M · 1 mod N = M.
