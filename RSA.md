@@ -4,11 +4,11 @@ In RSA, we have two large primes p and q, a modulus N = pq, an encryption expone
 
 To encrypt a message M, compute
 
-      C = $M^{e}$ mod N.
+      C = M<sup>e</sup> mod N.
 
 We want to show
 
-      M = $C^{d}$ mod N,
+      M = C<sup>d</sup> mod N,
 
 i.e., that we can decrypt by raising the ciphertext C to the d power and reducing the result modulo N. But first we must take a slight mathematical detour.
 
@@ -18,7 +18,7 @@ For a positive integer n, define φ(n) to be the number of integers less than n 
 
 Suppose the prime factorization of n is given by
 
-      n = $p1^{k1}$ $p2^{k2}$ ... $pr^{kr}$
+      n = p<sub>1</sub><sup>k<sub>1</sub></sup> p<sub>2</sub><sup>k<sub>2</sub></sup> ... p<sub>r</sub><sup>k<sub>r</sub><sup>
 
 Then it can be shown that
 
